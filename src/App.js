@@ -2,12 +2,17 @@ import {Component} from "react";
 import {nanoid} from "nanoid";
 import Card from "./components/Card/Card";
 import "./cards.css";
-import "./CardDeck";
 import {CardDeck} from "./CardDeck";
 
 class App extends Component {
   state = {
-    cards: []
+    cards: [
+      {suit: 'diams', ranks: '6'},
+      {suit: 'hearts', ranks: 'A'},
+      {suit: 'clubs', ranks: 'J'},
+      {suit: 'spades', ranks: '2'},
+      {suit: 'spades', ranks: 'K'},
+    ]
   };
 
   getFiveCards = () => {
@@ -30,7 +35,7 @@ class App extends Component {
       return (
         <Card
           key={nanoid()}
-          rank={card.ranks}
+          ranks={card.ranks}
           suit={card.suit}
         />
       );
@@ -39,6 +44,9 @@ class App extends Component {
       <div className="container">
         <div className="playingCards fourColours faceImages">
           {cards}
+        </div>
+        <div>
+          <button onClick={this.getFiveCards}>Get cards</button>
         </div>
       </div>
 
