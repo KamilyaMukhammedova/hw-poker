@@ -16,8 +16,8 @@ class Card extends Component {
 
   render() {
     return (
-      <div className={'card rank-' + (this.props.rank).toLowerCase() + ' ' + this.props.suit}>
-        <span className="rank">{this.props.rank}</span>
+      <div className={'card rank-' + (this.props.ranks).toLowerCase() + ' ' + this.props.suit}>
+        <span className="rank">{this.props.ranks}</span>
         <span className="suit">{this.getSuit()}</span>
       </div>
     );
