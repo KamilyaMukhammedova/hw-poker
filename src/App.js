@@ -1,17 +1,18 @@
 import {Component} from "react";
 import {nanoid} from "nanoid";
 import Card from "./components/Card/Card";
-import "./cards.css";
 import {CardDeck} from "./CardDeck";
+import "./cards.css";
+import {PokerHand} from "./PokerHand";
 
 class App extends Component {
   state = {
     cards: [
       {suit: 'diams', ranks: '6'},
-      {suit: 'hearts', ranks: 'A'},
-      {suit: 'clubs', ranks: 'J'},
-      {suit: 'spades', ranks: '2'},
-      {suit: 'spades', ranks: 'K'},
+      {suit: 'diams', ranks: 'A'},
+      {suit: 'diams', ranks: 'J'},
+      {suit: 'diams', ranks: '2'},
+      {suit: 'diams', ranks: 'K'},
     ]
   };
 
@@ -38,7 +39,7 @@ class App extends Component {
           ranks={card.ranks}
           suit={card.suit}
         />
-      );
+      )
     });
     return (
       <div className="container">
@@ -46,10 +47,10 @@ class App extends Component {
           {cards}
         </div>
         <div>
-          <button onClick={this.getFiveCards}>Get cards</button>
+          <button className="btn" onClick={this.getFiveCards}>Get cards</button>
         </div>
+        <p className="result">{new PokerHand(this.state.cards).getOutcome()}</p>
       </div>
-
     );
   }
 }
